@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--onlyzs1023@gmail 2017/02-->
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="resume page of onlyzs" />
+		<meta name="author" content="onlyzs" />
+		<!--[if IE]>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<![endif]-->
+		<title>SAWAKO'S WORLD</title>
+		<!--REQUIRED STYLE SHEETS-->
+		<!-- BOOTSTRAP CORE STYLE CSS -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLE CSS -->
+		<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+		<!--ANIMATED FONTAWESOME STYLE CSS -->
+		<link href="assets/css/font-awesome-animation.css" rel="stylesheet" />
+		<!--JQUERY UI STYLE CSS -->
+		<link href="assets/css/jquery-ui.min.css" rel="stylesheet" />
+		<link href="assets/css/jquery-ui.structure.min.css" rel="stylesheet" />
+		<link href="assets/css/jquery-ui.theme.min.css" rel="stylesheet" />
+		<!-- MORRIS CSS -->
+		<link href="assets/css/morris.css" rel="stylesheet" />
+		<!-- CUSTOM STYLE CSS -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<!-- GOOGLE FONT -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<!-- NAV SECTION -->
+		<div class="navbar navbar-inverse navbar-fixed-top navbar-toggleable-md" ng-controller="headerListController as headCtrl">
+			<button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="index.html">{{headCtrl.logo}}</a>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto navbar-right">
+					<li class="nav-item" ng-repeat="link in headCtrl.links"><a class="nav-link" href={{link.linker}}>{{link.title}}</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--END NAV SECTION -->
+		
+		<!--CONTACT PAGE SECTION-->
+		<div class="container" ng-controller="boardController as boardCtrl">
+			<div class="row board-pad">
+				<div class="col-md-12">
+					<div class="cnt">
+						<span ng-repeat="msg in boardCtrl.messages" class={{msg.badge}} style={{msg.style}}>{{msg.content}}</span>
+					</div>
+					<form id="msg-form" action="method/msg.php" method="POST">
+						<div class="input-group">
+							<input name="msg-cotent" type="text" class="form-control" placeholder="Less than 32 letters" maxlength ="32" ng-model="boardCtrl.newMessage" />
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-primary" ng-click="boardCtrl.addMessage()">Leave A Message</button>
+							</span>
+						</div>
+						<span id="response-msg" class="response-text"></span>
+					</form>
+				</div> 
+			</div> 
+		</div> 
+		
+		<div class="container">
+			<div class="row top-pad">
+				<div  class="col-md-12">
+					<h1 >CONTACT ME</h1>          
+				</div>
+			</div>
+		</div>
+		
+		<section ng-controller="contactController as contactCtrl">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<form id="inquery-form" action="method/inquery.php" method="POST">
+							<div class="form-group row">
+								<label for="inputName" class="col-2 col-form-label"><h5>Name</h5></label>
+								<div class="col-10">
+									<input name="name" type="text" class="form-control" required="required" placeholder="Your name"  maxlength ="128" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputEmail" class="col-2 col-form-label"><h5>Email</h5></label>
+								<div class="col-10">
+									<input name="email" type="text" class="form-control" required="required" placeholder="Email address"  maxlength ="128" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputMessage" class="col-2 col-form-label"><h5>Inquery</h5></label>
+								<div class="col-10">
+									<textarea name="inquery" required="required" class="form-control" rows="5" placeholder="Anything you want to know about me..."></textarea>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-md-12">
+									<div class="pull-right">
+										<span id="response-inquery" class="response-text"></span>
+										<button type="submit" class="btn btn-primary">Submit Inquery</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-5">
+						<div class="card">
+							<div class="card-block">
+								<span ng-repeat="iconer in contactCtrl.iconLinks" ><a href={{iconer.linker}} target='_blank'><img class="icons" ng-src={{iconer.icon_src}} width="25" height="25"></a></span>
+							</div> 
+						</div> 
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--END CONTACT PAGE SECTION-->  
+   
+		<!--FOOTER SECTION -->
+		<div id="footer">
+			Copyright &copy; 2017 onlyzs | All Rights Reserved 
+		</div>
+		<!-- END FOOTER SECTION -->
+
+		<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+		<!-- CORE JQUERY  -->
+		<script src="assets/plugins/jquery-1.10.2.js"></script>
+		<!-- TETHER JS -->
+		<script src="assets/plugins/tether.min.js"></script>
+		<!-- BOOTSTRAP CORE SCRIPT   -->
+		<script src="assets/plugins/bootstrap.min.js"></script>
+		<!-- ANGULAR JS -->
+		<script src="assets/plugins/angular.js"></script>	
+		<!-- JQUERY UI JS -->
+		<script src="assets/plugins/jquery-ui.min.js"></script>		
+		<!-- RAPHAEL JS -->
+		<script src="assets/plugins/raphael.min.js"></script>
+		<!-- MORRIS JS -->
+		<script src="assets/plugins/morris.min.js"></script>				
+		<!-- CUSTOM SCRIPTS -->
+		<script src="assets/js/script.js"></script>
+		
+	</body>
+</html>

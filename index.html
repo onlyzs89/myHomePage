@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<!--onlyzs1023@gmail 2017/02-->
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="resume page of onlyzs" />
+		<meta name="author" content="onlyzs" />
+		<!--[if IE]>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<![endif]-->
+		<title>SAWAKO'S WORLD</title>
+		<!--REQUIRED STYLE SHEETS-->
+		<!-- BOOTSTRAP CORE STYLE CSS -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLE CSS -->
+		<link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+		<!--ANIMATED FONTAWESOME STYLE CSS -->
+		<link href="assets/css/font-awesome-animation.css" rel="stylesheet" />
+		<!--JQUERY UI STYLE CSS -->
+		<link href="assets/css/jquery-ui.min.css" rel="stylesheet" />
+		<link href="assets/css/jquery-ui.structure.min.css" rel="stylesheet" />
+		<link href="assets/css/jquery-ui.theme.min.css" rel="stylesheet" />
+		<!-- MORRIS CSS -->
+		<link href="assets/css/morris.css" rel="stylesheet" />
+		<!-- CUSTOM STYLE CSS -->
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<!-- GOOGLE FONT -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<!-- NAV SECTION -->
+		<div class="navbar navbar-inverse fixed-top navbar-toggleable-md" ng-controller="headerListController as headCtrl">
+			<button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<a class="navbar-brand" href="index.html">{{headCtrl.logo}}</a>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav mr-auto navbar-right">
+					<li class="nav-item" ng-repeat="link in headCtrl.links"><a class="nav-link" href={{link.linker}}>{{link.title}}</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--END NAV SECTION -->
+		
+		<div id="home-sec">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="head-main" id="home-sec-content"></div>
+						<div>
+							<p class="home-par">
+								This is self introduction of sawako.
+								<br />Thank you for accessing.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<h3 class="head-last col-md-6">
+							<a class="btn btn-primary btn-lg" target="_self" href="assets/data/resume_ShuangZhang.pdf" download="resume_ShuangZhang.pdf">DOWNLOAD RESUME</a>
+						</h3>
+						<h3 class="head-last col-md-6">
+							<a class="btn btn-primary btn-lg" target="_self" href="assets/data/resume_ShuangZhang_jp.pdf" download="resume_ShuangZhang_jp.pdf">履歴をダウンロード</a>
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--WORK PAGE SECTION-->
+		<div class="container" id="work" >
+			<div class="row top-pad">
+				<div class="col-md-12">
+					<h1 >Works</h1>          	 
+				</div>
+			</div>
+		</div>
+		<section ng-controller="homeController as homeCtrl">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-4" ng-repeat="homeCon in homeCtrl.homeContent">
+						<div class="card">
+							<div class="card-header">
+								<a href={{homeCon.linker}} target="_blank">{{homeCon.title}}</a>
+							</div>
+							<div class="card-block">
+								<p>{{homeCon.content}}</p>
+							</div>
+							<div class="card-footer small-par">
+								{{homeCon.skill}}
+							</div>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--END WORK PAGE SECTION-->  
+		
+		<!--ABOUT PAGE SECTION-->
+		<div class="container" id="about">
+			<div class="row top-pad">
+				<div class="col-md-12">
+					<h1 >About Me</h1>          	 
+				</div>
+			</div>
+		</div>
+		<section ng-controller="aboutController as aboutCtrl">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 col-sm-5">
+						<div class="card">
+							<div class="card-header">
+								ID
+							</div>
+							<div class="card-block">
+								<li ng-repeat="det in aboutCtrl.introDetails"><strong>{{det.title}}: </strong>{{det.content}}</li>
+							</div>
+						</div> 
+					</div>
+					<div class="col-md-7 col-sm-7">
+						<div class="card">
+							<div class="card-header">
+								SELF INTRO
+							</div>
+							<div class="card-block">
+								<p>
+									some intro
+								</p>
+								<span class="pull-right"><a href="#" target="_blank">Read More</a></span>
+							</div>
+						</div> 
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-7 col-sm-7">
+						<div class="card">
+							<div class="card-header">
+								INVOLVED PROJRCTS
+							</div>
+							<div class="card-block">
+								<table class="table table-striped">
+									<tr>
+										<th>PROJECT</th>
+										<th>DETAIL</th>
+										<th>SKILL</th>
+									</tr>
+									<tr ng-repeat="pro in aboutCtrl.involvedProjects">
+										<td>{{pro.project}}</td>
+										<td>{{pro.detail}}</td>
+										<td>{{pro.skill}}</td>
+									</tr>
+								</table>
+							</div>
+						</div> 
+					</div>
+					<div class="col-md-5 col-sm-5">
+						<div class="card">
+							<div class="card-header">
+								SKILLS
+							</div>
+							<div class="card-block">
+								<div class="progress" ng-repeat="skills in aboutCtrl.skillBars">
+									<div class={{skills.currentClass}} role="progressbar" aria-valuenow={{skills.currentValue}} aria-valuemin="0" aria-valuemax="100" style={{skills.currentWidth}}>
+										<h6>{{skills.currentTitle}}</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-4 col-sm-4">
+						<div class="card">
+							<div class="card-header">
+								LANGUAGE SKILL
+							</div>
+							<div class="card-block">
+								<div id="langBar" style="height: 250px;"></div>
+							</div>
+						</div> 
+					</div>
+					<div class="col-md-4 col-sm-4" ng-repeat="info in aboutCtrl.otherInfo">
+						<div class="card">
+							<div class="card-header">
+								{{info.title}}
+							</div>
+							<div class="card-block">
+								<li ng-repeat="con in info.content">{{con}}</li>
+							</div>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--END ABOUT PAGE SECTION-->
+
+		<!--FOOTER SECTION -->
+		<div id="footer">
+			Copyright &copy; 2017 onlyzs | All Rights Reserved 
+		</div>
+		<!-- END FOOTER SECTION -->
+
+		<!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+		<!-- CORE JQUERY  -->
+		<script src="assets/plugins/jquery-1.10.2.js"></script>
+		<!-- TETHER JS -->
+		<script src="assets/plugins/tether.min.js"></script>
+		<!-- BOOTSTRAP CORE SCRIPT   -->
+		<script src="assets/plugins/bootstrap.min.js"></script>
+		<!-- ANGULAR JS -->
+		<script src="assets/plugins/angular.js"></script>	
+		<!-- JQUERY UI JS -->
+		<script src="assets/plugins/jquery-ui.min.js"></script>	
+		<!-- RAPHAEL JS -->
+		<script src="assets/plugins/raphael.min.js"></script>
+		<!-- MORRIS JS -->
+		<script src="assets/plugins/morris.min.js"></script>				
+		<!-- CUSTOM SCRIPTS -->
+		<script src="assets/js/script.js"></script>
+		<script>
+			// HOME UPPER CONTENT LOOP
+			var homeSecContent = ["WELCOME TO SAWAKO'S WONDERFUL WORLD", "さわこの不思議な世界へようこそ","欢迎来到小爽的奇妙世界"]
+			var homeSecFont = ["serif","serif","serif"]
+			var homeSecSize = ["35px","50px","50px"]
+			var homeSecContentIndex = 0;
+			$("#home-sec-content").text(homeSecContent[homeSecContentIndex]);
+			$("#home-sec-content").css('font-family',homeSecFont[homeSecContentIndex]);
+			$("#home-sec-content").css('font-size',homeSecSize[homeSecContentIndex]);
+			setTimeout('homeUpperContentLoop()', 5000);
+			function homeUpperContentLoop() {
+				if(homeSecContentIndex<homeSecContent.length-1){
+					homeSecContentIndex++;
+				} else{
+					homeSecContentIndex=0;
+				}
+				$("#home-sec-content").hide("slide", { direction: "down" }, 800, function(){
+					$("#home-sec-content").text(homeSecContent[homeSecContentIndex]);
+					$("#home-sec-content").css('font-family',homeSecFont[homeSecContentIndex]);
+					$("#home-sec-content").css('font-size',homeSecSize[homeSecContentIndex]);
+				});
+				$("#home-sec-content").show("slide", { direction: "up" }, 800);
+				setTimeout("homeUpperContentLoop()", 5000);
+			}
+
+			// MORRIS BAR CHART
+			Morris.Bar({
+				element: 'langBar',
+				data: [
+					{ x: 'Chinese', y: 100 },
+					{ x: 'Japanese',  y: 70 },
+					{ x: 'English',  y: 60 },
+					{ x: 'French',  y: 10 }
+				],
+				xkey: 'x',
+				ykeys: 'y',
+				labels: ['level'],
+				axes: 'x',
+				grid: false,
+				hideHover: 'always',
+				xLabelMargin: 10,
+				resize: true,
+				fillOpacity: 0.5,
+				barColors: function (row) {
+					if(row.label == "Chinese") return "#fa8072";
+					else if(row.label == "Japanese") return "#00fa9a";
+					else if(row.label == "English") return "#ee82ee";
+					else if(row.label == "French") return "#87ceeb";
+				}
+			});
+		</script>
+	</body>
+</html>
